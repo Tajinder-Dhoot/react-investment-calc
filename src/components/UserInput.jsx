@@ -9,6 +9,7 @@ function UserInput({userInput, onValueChange}) {
                 <input 
                     type="number"
                     required
+                    min={0}
                     value={userInput.initialInvestment}
                     onChange={(event) => onValueChange('initialInvestment', event.target.value)}
                 />
@@ -18,6 +19,7 @@ function UserInput({userInput, onValueChange}) {
                 <input 
                     type="number"
                     required
+                    min={0}
                     value={userInput.annualInvestment}
                     onChange={(event) => onValueChange('annualInvestment', event.target.value)}
                 />

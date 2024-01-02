@@ -1,22 +1,6 @@
 import React, { useState } from 'react'
 
-function UserInput() {
-    const [userInput, setUserInput] = useState({
-        'initialInvestment': 10000,
-        'annualInvestment': 1000,
-        'expectedReturn': 5,
-        'duration': 5
-    });
-
-    function handleValueChange(inputIdentifier, newValue) {
-        setUserInput((prevUserInput) => {
-            return {
-                ...prevUserInput,
-                [inputIdentifier] : newValue
-            };
-        });
-    }
-
+function UserInput({userInput, onValueChange}) {
     return (
     <section id='user-input'>
         <div className='input-group'>
@@ -26,7 +10,7 @@ function UserInput() {
                     type="number"
                     required
                     value={userInput.initialInvestment}
-                    onChange={(event) => handleValueChange('initialInvestment', event.target.value)}
+                    onChange={(event) => onValueChange('initialInvestment', event.target.value)}
                 />
             </p>
             <p >
@@ -35,7 +19,7 @@ function UserInput() {
                     type="number"
                     required
                     value={userInput.annualInvestment}
-                    onChange={(event) => handleValueChange('annualInvestment', event.target.value)}
+                    onChange={(event) => onValueChange('annualInvestment', event.target.value)}
                 />
             </p>
         </div>
@@ -46,7 +30,7 @@ function UserInput() {
                     type="number"
                     required
                     value={userInput.expectedReturn}
-                    onChange={(event) => handleValueChange('expectedReturn', event.target.value)}    
+                    onChange={(event) => onValueChange('expectedReturn', event.target.value)}    
                 />
             </p>
             <p >
@@ -55,7 +39,7 @@ function UserInput() {
                     type="number"
                     required
                     value={userInput.duration}
-                    onChange={(event) => handleValueChange('duration', event.target.value)}    
+                    onChange={(event) => onValueChange('duration', event.target.value)}    
                 />
             </p>
         </div>
